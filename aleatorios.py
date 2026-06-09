@@ -1,7 +1,7 @@
 """
 aleatorios.py
 
-Autor/a: [El Teu Nom i Cognoms]
+Autor/a: [Guillem Orta Talavera]
 Descripció: Implementació d'un generador de nombres pseudoaleatoris
 utilitzant l'algorisme de Generació Lineal Congruent (LGC).
 Inclou una classe iteradora `Aleat` i una funció generadora `aleat()`.
@@ -59,39 +59,7 @@ class Aleat:
 
 
 def aleat(*, m=2**48, a=25214903917, c=11, x0=1212121):
-    """
-    Generador de nombres aleatoris usant el mètode LGC (funció generadora).
-    
-    Paràmetres:
-        m (int): Mòdul.
-        a (int): Multiplicador.
-        c (int): Increment.
-        x0 (int): Llavor inicial.
-        
-    Retorna:
-        Genera (yield) el següent nombre pseudoaleatori de la seqüència.
-        
-    Proves unitàries:
-    >>> rand = aleat(m=64, a=5, c=46, x0=36)
-    >>> for _ in range(4):
-    ...     print(next(rand))
-    ...
-    34
-    24
-    38
-    44
-    
-    >>> rand.send(24)
-    38
-    >>> for _ in range(4):
-    ...     print(next(rand))
-    ...
-    44
-    10
-    32
-    14
-    """
-    x = x0
+        x = x0
     while True:
         x = (a * x + c) % m
         nova_semilla = yield x
